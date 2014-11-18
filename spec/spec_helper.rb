@@ -1,0 +1,1 @@
+require 'make_me_a_gem_called'
