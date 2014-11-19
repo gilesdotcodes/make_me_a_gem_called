@@ -5,3 +5,15 @@ require 'make_me_a_gem_called'
 gem = MakeMeAGemCalled.new(ARGV.first)
 
 gem.create_with_bundle
+gem.change_into_directory
+gem.create_spec_files
+gem.add_to_spec_files
+gem.add_require_relative_to_main_file
+gem.command_line_question
+gem.create_bin_files if gem.command_line?
+gem.add_to_bin_files if gem.command_line?
+gem.rspec_question
+gem.create_tasks_files if gem.rspec?
+gem.add_to_tasks_files if gem.rspec?
+gem.add_to_rake_file if gem.rspec?
+gem.instructions
