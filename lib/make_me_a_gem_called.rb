@@ -14,7 +14,7 @@ class MakeMeAGemCalled
   end
 
   def change_into_directory
-    system("cd #{name}")
+    system("cd #{@name}")
   end
 
   def create_spec_files
