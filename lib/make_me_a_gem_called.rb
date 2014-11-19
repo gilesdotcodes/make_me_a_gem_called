@@ -33,7 +33,7 @@ class MakeMeAGemCalled
   end
 
   def command_line_question
-    "Would you like to run this gem in the command line? Y/N"
+    puts "Would you like to run this gem in the command line? Y/N"
     @command_line = gets.chomp
   end
 
@@ -42,7 +42,7 @@ class MakeMeAGemCalled
   end
 
   def rspec_question
-    "Would you like to use RSpec to test this gem? Y/N"
+    puts "Would you like to use RSpec to test this gem? Y/N"
     @rspec = gets.chomp
   end
 
