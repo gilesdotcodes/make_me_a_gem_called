@@ -6,7 +6,7 @@ gem = MakeMeAGemCalled.new(ARGV.first)
 
 gem.create_with_bundle
 
-# gem.change_into_directory
+gem.change_into_directory
 # sleep 2
 # gem.create_spec_files
 # sleep 1
