@@ -13,10 +13,6 @@ class MakeMeAGemCalled
     system("bundle gem #{@name}")
   end
 
-  # def change_into_directory
-  #   system("cd #{@name}")
-  # end
-
   def create_spec_files
     system("mkdir #{@name}/spec")
     system("touch #{@name}/spec/spec_helper.rb")
@@ -66,13 +62,15 @@ class MakeMeAGemCalled
   end
 
   def add_to_tasks_files
+    text_one = "RSpec::Core::RakeTask.new(:spec)"
     system("echo require 'rspec/core/rake_task' >> #{@name}/tasks/rspec.rake")
-    system("echo RSpec::Core::RakeTask.new(:spec) >> #{@name}/tasks/rspec.rake")
+    system("echo #{text_one} >> #{@name}/tasks/rspec.rake")
 
   end
 
   def add_to_rake_file
-    system("echo Dir.glob('tasks/**/*.rake').each(&method(:import)) >> #{@name}/Rakefile")
+    text_two = "Dir.glob('tasks/**/*.rake').each(&method(:import))"
+    system("echo #{text_two} >> #{@name}/Rakefile")
   end
 
   def instructions

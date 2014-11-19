@@ -5,7 +5,6 @@ require 'make_me_a_gem_called'
 gem = MakeMeAGemCalled.new(ARGV.first)
 
 gem.create_with_bundle
-# gem.change_into_directory
 gem.create_spec_files
 gem.add_to_spec_files
 gem.add_require_relative_to_main_file
