@@ -34,7 +34,7 @@ class MakeMeAGemCalled
 
   def command_line_question
     puts "Would you like to run this gem in the command line? Y/N"
-    @command_line = gets.chomp
+    @command_line = STDIN.gets.chomp
   end
 
   def command_line?
@@ -43,7 +43,7 @@ class MakeMeAGemCalled
 
   def rspec_question
     puts "Would you like to use RSpec to test this gem? Y/N"
-    @rspec = gets.chomp
+    @rspec = STDIN.gets.chomp
   end
 
   def rspec?
