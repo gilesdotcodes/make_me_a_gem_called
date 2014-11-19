@@ -20,16 +20,16 @@ class MakeMeAGemCalled
   def create_spec_files
     system("mkdir spec")
     system("touch spec/spec_helper.rb")
-    system("touch spec/#{name}_spec.rb")
+    system("touch spec/#{@name}_spec.rb")
   end
 
   def add_to_spec_files
-    system("echo require 'spec_helper' >> spec/#{name}_spec.rb")
-    system("echo require '#{name}_spec' >> spec/spec_helper.rb")
+    system("echo require 'spec_helper' >> spec/#{@name}_spec.rb")
+    system("echo require '#{@name}_spec' >> spec/spec_helper.rb")
   end
 
   def add_require_relative_to_main_file
-    system("echo require_relative '#{name}/version' >> lib/#{name}.rb")
+    system("echo require_relative '#{@name}/version' >> lib/#{@name}.rb")
   end
 
   def command_line_question
@@ -52,12 +52,12 @@ class MakeMeAGemCalled
 
   def create_bin_files
     system("mkdir bin")
-    system("touch bin/#{name}")
+    system("touch bin/#{@name}")
   end
 
   def add_to_bin_files
-    system("echo #!/usr/bin/env ruby >> bin/#{name}")
-    system("echo require '#{name}' >> bin/#{name}")
+    system("echo #!/usr/bin/env ruby >> bin/#{@name}")
+    system("echo require '#{@name}' >> bin/#{@name}")
   end
 
   def create_tasks_files
