@@ -72,6 +72,12 @@ class MakeMeAGemCalled
     system("echo \"Dir.glob(\'tasks/**/*.rake\').each(&method(:import))\" >> #{@name}/Rakefile")
   end
 
+  def add_to_gemspec
+    system("sed -i \'\' \'23i\\
+      spec.add_development_dependency \'rspec\'\\
+      \' #{name}/#{name}.gemspec")
+  end
+
   def instructions
     puts "1. Add   spec.add_development_dependency 'rspec'   to your gemspec"
   end
