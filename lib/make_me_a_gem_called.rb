@@ -74,7 +74,7 @@ class MakeMeAGemCalled
 
   def add_to_gemspec
     system("sed -i \'\' \'23i\\
-      \'\t\'\'\t\'spec.add_development_dependency \"rspec\"\\
+      \ \ spec.add_development_dependency \"rspec\"\\
       \' #{name}/#{name}.gemspec")
   end
 

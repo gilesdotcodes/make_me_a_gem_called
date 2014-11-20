@@ -3,6 +3,13 @@ This is line 7
 
 task goes here/n
 task goes here\n
+   This is line 6
+\\\This is line 6
+\This is line 6
+"   This is line 6"
+This is line 6
+\t\t\tThis is line 6
+tttThis is line 6
 This is line 6
 task goes here
 require 'this is a new test'
