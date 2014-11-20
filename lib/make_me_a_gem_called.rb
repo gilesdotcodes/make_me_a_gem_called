@@ -20,12 +20,12 @@ class MakeMeAGemCalled
   end
 
   def add_to_spec_files
-    system("echo require 'spec_helper' >> #{@name}/spec/#{@name}_spec.rb")
-    system("echo require '#{@name}_spec' >> #{@name}/spec/spec_helper.rb")
+    system("echo require ^'spec_helper^' >> #{@name}/spec/#{@name}_spec.rb")
+    system("echo require ^'#{@name}_spec^' >> #{@name}/spec/spec_helper.rb")
   end
 
   def add_require_relative_to_main_file
-    system("echo require_relative '#{@name}/version' >> #{@name}/lib/#{@name}.rb")
+    system("echo require_relative ^'#{@name}/version^' >> #{@name}/lib/#{@name}.rb")
   end
 
   def command_line_question
@@ -52,8 +52,8 @@ class MakeMeAGemCalled
   end
 
   def add_to_bin_files
-    system("echo #!/usr/bin/env ruby >> #{@name}/bin/#{@name}")
-    system("echo require '#{@name}' >> #{@name}/bin/#{@name}")
+    system("echo ^#^!/usr/bin/env ruby >> #{@name}/bin/#{@name}")
+    system("echo require ^'#{@name}^' >> #{@name}/bin/#{@name}")
   end
 
   def create_tasks_files
@@ -63,16 +63,16 @@ class MakeMeAGemCalled
 
   def add_to_tasks_files
     system("echo require 'rspec/core/rake_task' >> #{@name}/tasks/rspec.rake")
-    system("echo \"RSpec::Core::RakeTask.new(:spec)\" >> #{@name}/tasks/rspec.rake")
+    system("echo ^'RSpec::Core::RakeTask.new(:spec)^' >> #{@name}/tasks/rspec.rake")
 
   end
 
   def add_to_rake_file
-    system("echo \"Dir.glob('tasks/**/*.rake').each(&method(:import))\" >> #{@name}/Rakefile")
+    system("echo ^'Dir.glob(^'tasks/**/*.rake^').each(&method(:import))^' >> #{@name}/Rakefile")
   end
 
   def instructions
-    "1. Add   spec.add_development_dependency 'rspec'   to your gemspec"
+    puts "1. Add   spec.add_development_dependency ^'rspec^'   to your gemspec"
   end
 
 end
