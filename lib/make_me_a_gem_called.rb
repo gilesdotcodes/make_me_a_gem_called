@@ -26,7 +26,7 @@ class MakeMeAGemCalled
 
   def add_require_relative_to_main_file
     system("sed -i \'\' 1d #{@name}/lib/#{@name}.rb")
-    system("echo -e require_relative \\'#{@name}/version\\'\\n | cat - #{@name}/lib/#{@name}.rb > temp && temp #{@name}/lib/#{@name}.rb")
+    system("echo require_relative \\'#{@name}/version\\'\\n | cat - #{@name}/lib/#{@name}.rb > #{@name}/lib/temp && #{@name}/lib/temp #{@name}/lib/#{@name}.rb")
   end
 
   def command_line_question
