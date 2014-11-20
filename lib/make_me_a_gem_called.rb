@@ -25,7 +25,7 @@ class MakeMeAGemCalled
   end
 
   def add_require_relative_to_main_file
-    system("echo sed -i \\'\\' 1d #{@name}/lib/#{@name}.rb")
+    system("sed -i \\'\\' 1d #{@name}/lib/#{@name}.rb")
     system("echo require_relative \\'#{@name}/version\\' >> #{@name}/lib/#{@name}.rb")
   end
 
@@ -53,7 +53,7 @@ class MakeMeAGemCalled
   end
 
   def add_to_bin_files
-    system("echo \\#\\!/usr/bin/env ruby3 >> #{@name}/bin/#{@name}")
+    system("echo \\#\\!/usr/bin/env ruby >> #{@name}/bin/#{@name}")
     system("echo require \\'#{@name}\\' >> #{@name}/bin/#{@name}")
   end
 
@@ -69,7 +69,7 @@ class MakeMeAGemCalled
   end
 
   def add_to_rake_file
-    system("echo \'Dir.glob(\\'tasks/**/*.rake\\').each(&method(:import))\' >> #{@name}/Rakefile")
+    system("echo \"Dir.glob(\\'tasks/**/*.rake\\').each(&method(:import))\" >> #{@name}/Rakefile")
   end
 
   def instructions
