@@ -2,7 +2,7 @@ require_relative "make_me_a_gem_called/version"
 
 class MakeMeAGemCalled
 
-  attr_reader :name, :command_line, :rspec
+  attr_reader :name, :command_line, :rspec, :instructions
 
   def initialize(name)
     @name = name
@@ -35,7 +35,7 @@ class MakeMeAGemCalled
   end
 
   def command_line?
-    @command_line == 'Y'||'y'||'yes'
+    @command_line == 'Y'||'y'||'yes'||'Yes'
   end
 
   def rspec_question
@@ -44,7 +44,7 @@ class MakeMeAGemCalled
   end
 
   def rspec?
-    @rspec == 'Y'||'y'||'yes'
+    @rspec == 'Y'||'y'||'yes'||'Yes
   end
 
   def create_bin_files
@@ -74,12 +74,28 @@ class MakeMeAGemCalled
 
   def add_to_gemspec
     system("sed -i \'\' \'23i\\
-      32.chr+\"spec.add_development_dependency \"rspec\"\"\\
+      \\ \\ spec.add_development_dependency \"rspec\"\\
       \' #{name}/#{name}.gemspec")
   end
 
-  def instructions
-    puts "1. Add   spec.add_development_dependency 'rspec'   to your gemspec"
+  def instructions_question
+    puts "Would you like to see Instructions for your next steps? Y/N"
+    @instructions = STDIN.gets.chomp
+  end
+
+  def instructions?
+    @instructions = 'Y'||'y'||'yes'||'Yes'
+  end
+
+  def show_instructions
+    puts "Basic Instructions"
+    puts "1. Change into the directory   $ cd #{name}"
+    puts "2. In your gemspec: Replace 'summary' and 'description' sections with a string using double quotations."
+    puts "3. Write your code in the lib/#{name}.rb file."
+    puts "4. If you decide to change from a Module to a Class, remember to change the version.rb file to a Class too."
+    puts "5. The bin/#{name} file is run when your gem is called from the command line. Run your code in this file."
+    puts "6. Don't forget to complete your README.md file."
+    puts "7. If using GitHub, set up a new repo on GitHub. You do not need to run $git init because Bundle has done that for you."
   end
 
 end

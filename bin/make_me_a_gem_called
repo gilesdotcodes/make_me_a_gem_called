@@ -16,4 +16,5 @@ gem.create_tasks_files if gem.rspec?
 gem.add_to_tasks_files if gem.rspec?
 gem.add_to_rake_file if gem.rspec?
 gem.add_to_gemspec if gem.rspec?
-gem.instructions
+gem.instructions_question
+gem.show_instructions if gem.instructions?
