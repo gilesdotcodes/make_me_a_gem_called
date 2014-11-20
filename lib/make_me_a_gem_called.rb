@@ -44,7 +44,7 @@ class MakeMeAGemCalled
   end
 
   def rspec?
-    @rspec == 'Y'||'y'||'yes'||'Yes
+    @rspec == 'Y'||'y'||'yes'||'Yes'
   end
 
   def create_bin_files
