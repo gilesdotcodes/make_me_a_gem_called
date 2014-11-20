@@ -1,8 +1,6 @@
-unrequire spec_helper
+task goes here
 
-
-
-cdc
-this is a test
-'this is a test'
-require 'this is a test'
+task goes here/n
+task goes here\n
+task goes here
+require 'this is a new test'

@@ -25,8 +25,8 @@ class MakeMeAGemCalled
   end
 
   def add_require_relative_to_main_file
-    system("sed -i \\'\\' 1d #{@name}/lib/#{@name}.rb")
-    system("echo require_relative \\'#{@name}/version\\' >> #{@name}/lib/#{@name}.rb")
+    system("sed -i \'\' 1d #{@name}/lib/#{@name}.rb")
+    system("echo -e require_relative \\'#{@name}/version\\'\\n | cat - #{@name}/lib/#{@name}.rb > temp && temp #{@name}/lib/#{@name}.rb")
   end
 
   def command_line_question
@@ -69,7 +69,7 @@ class MakeMeAGemCalled
   end
 
   def add_to_rake_file
-    system("echo \"Dir.glob(\\'tasks/**/*.rake\\').each(&method(:import))\" >> #{@name}/Rakefile")
+    system("echo \"Dir.glob(\'tasks/**/*.rake\').each(&method(:import))\" >> #{@name}/Rakefile")
   end
 
   def instructions
