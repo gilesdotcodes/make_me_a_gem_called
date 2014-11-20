@@ -96,6 +96,9 @@ class MakeMeAGemCalled
     puts "5. The bin/#{name} file is run when your gem is called from the command line. Run your code in this file."
     puts "6. Don't forget to complete your README.md file."
     puts "7. If using GitHub, set up a new repo on GitHub. You do not need to run $git init because Bundle has done that for you."
+    puts "8. To run your tests:  $ bundle exec rake spec"
+    puts "9. To uploaded to rubygems.org:  $ bundle exec rake release"
+    puts "Note: You must change the version number every time to upload any changes."
   end
 
 end
