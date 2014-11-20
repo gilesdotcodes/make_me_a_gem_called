@@ -20,12 +20,12 @@ class MakeMeAGemCalled
   end
 
   def add_to_spec_files
-    system("echo require ^'spec_helper^' >> #{@name}/spec/#{@name}_spec.rb")
-    system("echo require ^'#{@name}_spec^' >> #{@name}/spec/spec_helper.rb")
+    system("echo require \\'spec_helper\\' >> #{@name}/spec/#{@name}_spec.rb")
+    system("echo require \\'#{@name}_spec\\' >> #{@name}/spec/spec_helper.rb")
   end
 
   def add_require_relative_to_main_file
-    system("echo require_relative ^'#{@name}/version^' >> #{@name}/lib/#{@name}.rb")
+    system("echo require_relative \\'#{@name}/version\\' >> #{@name}/lib/#{@name}.rb")
   end
 
   def command_line_question
@@ -52,8 +52,11 @@ class MakeMeAGemCalled
   end
 
   def add_to_bin_files
-    system("echo ^#^!/usr/bin/env ruby >> #{@name}/bin/#{@name}")
-    system("echo require ^'#{@name}^' >> #{@name}/bin/#{@name}")
+    system("echo #!/usr/bin/env ruby1 >> #{@name}/bin/#{@name}")
+    system("echo \#\!/usr/bin/env ruby2 >> #{@name}/bin/#{@name}")
+    system("echo \\#\\!/usr/bin/env ruby3 >> #{@name}/bin/#{@name}")
+    system("echo \'#\'\'!\'/usr/bin/env ruby3 >> #{@name}/bin/#{@name}")
+    system("echo require '#{@name}^' >> #{@name}/bin/#{@name}")
   end
 
   def create_tasks_files

@@ -5,3 +5,6 @@ unrequire spec_helper
 
 
 cdc
+this is a test
+'this is a test'
+require 'this is a test'
