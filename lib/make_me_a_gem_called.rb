@@ -62,15 +62,13 @@ class MakeMeAGemCalled
   end
 
   def add_to_tasks_files
-    text_one = "RSpec::Core::RakeTask.new(:spec)"
     system("echo require 'rspec/core/rake_task' >> #{@name}/tasks/rspec.rake")
-    system("echo #{text_one} >> #{@name}/tasks/rspec.rake")
+    system("echo \"RSpec::Core::RakeTask.new(:spec)\" >> #{@name}/tasks/rspec.rake")
 
   end
 
   def add_to_rake_file
-    text_two = "Dir.glob('tasks/**/*.rake').each(&method(:import))"
-    system("echo #{text_two} >> #{@name}/Rakefile")
+    system("echo \"Dir.glob('tasks/**/*.rake').each(&method(:import))\" >> #{@name}/Rakefile")
   end
 
   def instructions
