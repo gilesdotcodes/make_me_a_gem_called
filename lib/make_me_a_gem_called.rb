@@ -35,7 +35,7 @@ class MakeMeAGemCalled
   end
 
   def command_line?
-    @command_line == 'Y'||'y'||'yes'||'Yes'
+    ['Y','y','yes','Yes'].include?(@command_line)
   end
 
   def rspec_question
@@ -44,7 +44,7 @@ class MakeMeAGemCalled
   end
 
   def rspec?
-    @rspec == 'Y'||'y'||'yes'||'Yes'
+    ['Y','y','yes','Yes'].include?(@rspec)
   end
 
   def create_bin_files
@@ -84,7 +84,7 @@ class MakeMeAGemCalled
   end
 
   def instructions?
-    @instructions = 'Y'||'y'||'yes'||'Yes'
+    ['Y','y','yes','Yes'].include?(@instructions)
   end
 
   def show_instructions
